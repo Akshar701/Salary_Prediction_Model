@@ -1,48 +1,67 @@
 # 💼 Salary Prediction Pipeline (ML Regression Project)
 
-This project is a machine learning pipeline for predicting salaries based on a variety of employee and company attributes. It compares multiple regression models and includes hyperparameter tuning, performance evaluation, and feature importance visualization.
+This project presents a machine learning pipeline for predicting employee salaries using various features related to job role, experience, and company attributes. It explores and compares multiple regression models, incorporates hyperparameter tuning using Bayesian Optimization, and evaluates model performance using standard regression metrics. Feature importance is also analyzed to understand the most influential predictors.
 
 ---
 
 ## 📂 Files in This Repo
 
-- `Salary_prediction_pipeline.ipynb` — Main notebook containing the full end-to-end pipeline.
-- `ml_salary_dataset_1000.csv` — Dataset used for model training and evaluation.
-- `requirements.txt` — All Python packages required to run this notebook.
+- `Salary_prediction_pipeline.ipynb` — Jupyter notebook with the complete ML pipeline.
+- `ml_salary_dataset_1000.csv` — Cleaned dataset with 1000 samples used for training and evaluation.
+- `requirements.txt` — List of Python dependencies needed to run the notebook.
 
 ---
 
 ## 📊 Dataset Overview
 
-- File: `ml_salary_dataset_1000.csv`
-- Target variable: `Salary (USD)`
-- Feature types:
-  - **Numerical**: `Experience (years)`, `Years at Current Company`, `Remote Ratio`
-  - **Categorical**: `Location`, `Education Level`, `Company Size`, `Company Tier`
+- **Filename:** `ml_salary_dataset_1000.csv`
+- **Rows:** 1000  
+- **Target Variable:** `Salary (USD)`  
+- **Feature Types:**
+  - **Numerical:**  
+    - `Experience (years)`  
+    - `Years at Current Company`  
+    - `Remote Ratio`  
+  - **Categorical:**  
+    - `Location`  
+    - `Education Level`  
+    - `Company Size`  
+    - `Company Tier`  
 
 ---
 
 ## 🧠 Models Evaluated
 
-- `LinearRegression`
-- `RandomForestRegressor` (Bayesian optimization via `BayesSearchCV`)
-- `SVR` (Support Vector Regressor with multiple kernels)
+The following regression models are trained and evaluated:
+
+- **Linear Regression** — A baseline model for comparison.
+- **Random Forest Regressor** — Ensemble model with hyperparameter tuning using `BayesSearchCV`.
+- **Support Vector Regressor (SVR)** — Evaluated with different kernels (`linear`, `rbf`, etc.).
 
 ---
 
-## 📈 Metrics Used
+## ⚙️ Hyperparameter Tuning
 
-- Mean Squared Error (MSE)
-- Mean Absolute Error (MAE)
-- R² Score
+- **RandomForestRegressor:** Optimized using `BayesSearchCV` from `scikit-optimize` (`skopt`) for improved performance.
+- **SVR:** Grid search is used to tune kernel-specific parameters.
 
-The model with the highest R² score is selected and analyzed for feature importance using permutation importance.
+---
+
+## 📈 Evaluation Metrics
+
+Each model is assessed using:
+
+- ✅ R² Score (Coefficient of Determination)
+- 🔻 Mean Absolute Error (MAE)
+- 🔺 Mean Squared Error (MSE)
+
+The model with the best **R² score** is selected for further analysis.
 
 ---
 
 ## 🔍 Feature Importance
 
-If `SVR` is the best model, the top 15 important features are visualized using permutation-based importance.
+If `SVR` is the best-performing model, permutation-based feature importance is used to visualize the top 15 most influential features.
 
 ---
 
@@ -52,3 +71,18 @@ If `SVR` is the best model, the top 15 important features are visualized using p
 
 ```bash
 pip install -r requirements.txt
+```
+
+### 2. Launch the Notebook
+
+Open the Jupyter notebook and run each cell in sequence:
+
+```bash
+jupyter notebook Salary_prediction_pipeline.ipynb
+```
+
+Ensure the dataset ml_salary_dataset_1000.csv is in the same directory as the notebook.
+
+
+
+
