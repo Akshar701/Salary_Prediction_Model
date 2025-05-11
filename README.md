@@ -9,7 +9,6 @@ This project is a machine learning pipeline for predicting salaries based on a v
 - `Salary_prediction_pipeline.ipynb` — Main notebook containing the full end-to-end pipeline.
 - `ml_salary_dataset_1000.csv` — Dataset used for model training and evaluation.
 - `requirements.txt` — All Python packages required to run this notebook.
-- *(Optional)*: `salary_model.pkl` — Trained model file (for deployment or API use).
 
 ---
 
